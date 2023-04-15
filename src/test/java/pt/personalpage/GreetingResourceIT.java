@@ -1,4 +1,4 @@
-package renan.farias;
+package pt.personalpage;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
