@@ -1,5 +1,6 @@
 #ide
 bin
+target
 .classpath
 .idea
 *.iml
