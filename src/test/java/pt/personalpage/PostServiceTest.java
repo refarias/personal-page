@@ -14,8 +14,7 @@ import java.time.LocalDateTime;
 @QuarkusTest
 public class PostServiceTest {
     private static final ObjectId POST_ID = new ObjectId("643ad40ea60f2449f20158e7");
-    private static final String LANGUAGE = "english";
-    private static final Post POST = new Post("update", "shouldNotUpdatePost", "", LocalDateTime.now(), false, LANGUAGE);
+    private static final Post POST = new Post("update", "shouldNotUpdatePost", "", LocalDateTime.now(), false, "english");
     @Inject
     PostService postService;
 

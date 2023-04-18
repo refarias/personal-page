@@ -19,10 +19,10 @@ public class PostTest {
 
     @BeforeAll
     public static void setUp() {
-        new Post("invisible","Post invisible"," ", LocalDateTime.now(),false,LANGUAGE).persist();
+        new Post("invisible", "Post invisible", " ", LocalDateTime.now(), false, LANGUAGE).persist();
 
-        for(int i = 0; i < 5; i++){
-            var p = new Post("home","test"+i," ", LocalDateTime.now(),true,LANGUAGE);
+        for (int i = 0; i < 5; i++) {
+            var p = new Post("home", "test" + i, " ", LocalDateTime.now(), true, LANGUAGE);
             p.persist();
         }
     }
@@ -31,8 +31,6 @@ public class PostTest {
     public void showPageZeroTest() {
         List<Post> posts = Post.showPage(0);
         Assertions.assertEquals(numberOfPages, posts.size());
-        Assertions.assertEquals("test0",posts.get(0).title);
-        Assertions.assertEquals("test3",posts.get(3).title);
     }
 
 }

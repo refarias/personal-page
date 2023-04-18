@@ -63,8 +63,8 @@ public class PostResource {
     @Path("{postId}")
     public Response deletePost(String postId) {
         Post post = Post.findById(postId);
-        if ( post == null ) {
-            return Response.status(Status.NOT_FOUND).build();
+        if (post == null) {
+            return Response.noContent().build();
         }
         post.delete();
         return Response.noContent().build();
