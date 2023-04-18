@@ -3,19 +3,18 @@ package pt.personalpage;
 import org.bson.types.ObjectId;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.core.Response;
 import java.time.LocalDateTime;
 
 @ApplicationScoped
 public class PostService {
-    public ObjectId createPost(Post post){
+    public ObjectId createPost(Post post) {
         Post.persist(post);
         return post.id;
     }
 
-    public boolean updatePost(String postId, Post postUpdate) {
+    public boolean updatePost(ObjectId postId, Post postUpdate) {
         Post post = Post.findById(postId);
-        if(post == null){
+        if(post == null) {
             return false;
         }
         post.path = postUpdate.path;

@@ -13,16 +13,16 @@ import java.util.List;
 @QuarkusTest
 @QuarkusTestResource(MongoDBContainer.class)
 public class PostTest {
-
+    private static final String LANGUAGE = "english";
     @ConfigProperty(name = "page.post.number")
     Integer numberOfPages;
 
     @BeforeAll
     public static void setUp() {
-        new Post("invisible","Post invisible"," ", LocalDateTime.now(),false,"english").persist();
+        new Post("invisible","Post invisible"," ", LocalDateTime.now(),false,LANGUAGE).persist();
 
         for(int i = 0; i < 5; i++){
-            var p = new Post("test","test"+i," ", LocalDateTime.now(),true,"english");
+            var p = new Post("home","test"+i," ", LocalDateTime.now(),true,LANGUAGE);
             p.persist();
         }
     }

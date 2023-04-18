@@ -39,7 +39,7 @@ public class PostResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePost(String postId, @Valid CreatePostDTO createDTO) {
         var postUpdate = new Post(createDTO.path, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language);
-        boolean isPostUpdated = service.updatePost(postId, postUpdate);
+        boolean isPostUpdated = service.updatePost(new ObjectId(postId), postUpdate);
         if (isPostUpdated) {
             return Response.ok().build();
         }
