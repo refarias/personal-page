@@ -7,7 +7,7 @@ import org.testcontainers.containers.wait.strategy.HostPortWaitStrategy;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MongoDBResource implements QuarkusTestResourceLifecycleManager {
+public class MongoDBContainer implements QuarkusTestResourceLifecycleManager {
     public static final String MONGO_IMAGE_NAME = "mongo:4.2.6";
     public static final int MONGO_PORT = 27017;
 

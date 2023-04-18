@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @QuarkusTest
-@QuarkusTestResource(MongoDBResource.class)
+@QuarkusTestResource(MongoDBContainer.class)
 public class PostTest {
 
     @ConfigProperty(name = "page.post.number")
