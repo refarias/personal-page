@@ -18,6 +18,7 @@ public class PostService {
             return false;
         }
         post.path = postUpdate.path;
+        post.coverImage = postUpdate.coverImage;
         post.title = postUpdate.title;
         post.content = postUpdate.content;
         post.date =  LocalDateTime.now();

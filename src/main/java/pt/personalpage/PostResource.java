@@ -1,6 +1,7 @@
 package pt.personalpage;
 
 import org.bson.types.ObjectId;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -15,6 +16,10 @@ import java.time.LocalDateTime;
 @RequestScoped
 @Path("post")
 public class PostResource {
+
+    @ConfigProperty(name = "page.post.number")
+    Integer numberOfPages;
+
     @Inject
     public PostService service;
 
@@ -22,13 +27,13 @@ public class PostResource {
     @Path("page/{pageNumber}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response showPage(int pageNumber) {
-        return Response.ok(Post.showPage(pageNumber)).build();
+        return Response.ok(Post.showPage(pageNumber, numberOfPages)).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPost(@Valid CreatePostDTO createDTO) {
-        ObjectId id = service.createPost(new Post(createDTO.path, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language));
+        ObjectId id = service.createPost(new Post(createDTO.path, createDTO.coverImage, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language));
         return Response.created(
                         URI.create("/post/%s".formatted(id.toString())))
                 .build();
@@ -38,7 +43,7 @@ public class PostResource {
     @Path("{postId}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePost(String postId, @Valid CreatePostDTO createDTO) {
-        var postUpdate = new Post(createDTO.path, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language);
+        var postUpdate = new Post(createDTO.path, null, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language);
         boolean isPostUpdated = service.updatePost(new ObjectId(postId), postUpdate);
         if (isPostUpdated) {
             return Response.ok().build();

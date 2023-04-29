@@ -10,9 +10,8 @@ import java.util.List;
 
 @MongoEntity(collection = "post")
 public class Post extends PanacheMongoEntity {
-    @ConfigProperty(name = "page.post.number")
-    Integer numberOfPages;
     public String path;
+    public String coverImage;
     public String title;
     public String content;
     public LocalDateTime date;
@@ -20,8 +19,9 @@ public class Post extends PanacheMongoEntity {
     public String language;
 
     public Post(){}
-    public Post(String path, String title, String content, LocalDateTime date, boolean visible, String language) {
+    public Post(String path, String coveImage, String title, String content, LocalDateTime date, boolean visible, String language) {
         this.path = path;
+        this.coverImage = coveImage;
         this.title = title;
         this.content = content;
         this.date = date;
@@ -29,8 +29,8 @@ public class Post extends PanacheMongoEntity {
         this.language = language;
     }
 
-    public static List<Post> showPage(int pageIndex) {
-        return Post.find("visible", Sort.by("date"), Boolean.TRUE).page(pageIndex,4).list();
+    public static List<Post> showPage(int pageIndex, Integer numberOfPages) {
+        return Post.find("visible", Sort.by("date"), Boolean.TRUE).page(pageIndex,numberOfPages).list();
     }
 }
 

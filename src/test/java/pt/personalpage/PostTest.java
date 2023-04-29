@@ -19,17 +19,17 @@ public class PostTest {
 
     @BeforeAll
     public static void setUp() {
-        new Post("invisible", "Post invisible", " ", LocalDateTime.now(), false, LANGUAGE).persist();
+        new Post("invisible", null, "Post invisible", " ", LocalDateTime.now(), false, LANGUAGE).persist();
 
         for (int i = 0; i < 5; i++) {
-            var p = new Post("home", "test" + i, " ", LocalDateTime.now(), true, LANGUAGE);
+            var p = new Post("home", null, "test" + i, " ", LocalDateTime.now(), true, LANGUAGE);
             p.persist();
         }
     }
 
     @Test
     public void showPageZeroTest() {
-        List<Post> posts = Post.showPage(0);
+        List<Post> posts = Post.showPage(0, 4);
         Assertions.assertEquals(numberOfPages, posts.size());
     }
 
