@@ -1,0 +1,21 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the Code
+        uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build application
+        run: mvn --batch-mode --update-snapshots clean install -DskipTests
+      - name: Tests
+        run: mvn --batch-mode test
