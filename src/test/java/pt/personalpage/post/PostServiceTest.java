@@ -1,12 +1,13 @@
-package pt.personalpage;
+package pt.personalpage.post;
 
 import com.mongodb.assertions.Assertions;
 import io.quarkus.panache.mock.PanacheMock;
 import io.quarkus.test.junit.QuarkusTest;
 import org.bson.types.ObjectId;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pt.personalpage.post.Post;
+import pt.personalpage.post.PostService;
 
 import javax.inject.Inject;
 import java.time.LocalDateTime;

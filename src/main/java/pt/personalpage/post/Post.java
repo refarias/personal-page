@@ -1,9 +1,8 @@
-package pt.personalpage;
+package pt.personalpage.post;
 
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.common.MongoEntity;
 import io.quarkus.panache.common.Sort;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package pt.personalpage;
+package pt.personalpage.post;
 
 import org.bson.types.ObjectId;
 
