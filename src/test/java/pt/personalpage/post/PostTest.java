@@ -1,4 +1,4 @@
-package pt.personalpage;
+package pt.personalpage.post;
 
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
@@ -6,6 +6,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pt.personalpage.MongoDBContainer;
 
 import java.time.LocalDateTime;
 import java.util.List;
