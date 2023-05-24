@@ -6,8 +6,6 @@ import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
-import pt.personalpage.post.Post;
-import pt.personalpage.post.PostResource;
 
 import java.time.LocalDateTime;
 
