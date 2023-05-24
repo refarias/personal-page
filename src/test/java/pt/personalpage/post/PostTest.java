@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pt.personalpage.MongoDBContainer;
-import pt.personalpage.post.Post;
 
 import java.time.LocalDateTime;
 import java.util.List;
