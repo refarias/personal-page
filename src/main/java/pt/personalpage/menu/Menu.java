@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public record Menu(Map<String, Object> items) {
-    @CacheResult(cacheName = "menu-cache")
+    
     public static Menu get() {
         var menu = new Menu(new HashMap<>());
         Post.listAll()
