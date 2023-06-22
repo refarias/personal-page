@@ -1,5 +1,6 @@
 package pt.personalpage;
 
+import io.quarkus.cache.CacheResult;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import pt.personalpage.menu.Menu;
 import pt.personalpage.post.Post;
@@ -20,6 +21,7 @@ public class PersonalPageResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @CacheResult(cacheName = "first-page")
     public Response getFistPage(){
         var profile = (Profile)Profile.findAll().firstResult();
         var menu = Menu.get();
