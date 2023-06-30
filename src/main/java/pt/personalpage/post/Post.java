@@ -12,16 +12,18 @@ public class Post extends PanacheMongoEntity {
     public String path;
     public String coverImage;
     public String title;
+    public String shortDescription;
     public String content;
     public LocalDateTime date;
     public boolean visible;
     public String language;
 
     public Post(){}
-    public Post(String path, String coveImage, String title, String content, LocalDateTime date, boolean visible, String language) {
+    public Post(String path, String coveImage, String title, String shortDescription, String content, LocalDateTime date, boolean visible, String language) {
         this.path = path;
         this.coverImage = coveImage;
         this.title = title;
+        this.shortDescription = shortDescription;
         this.content = content;
         this.date = date;
         this.visible = visible;

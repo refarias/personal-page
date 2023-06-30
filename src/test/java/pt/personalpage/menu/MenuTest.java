@@ -72,8 +72,8 @@ public class MenuTest {
 
     @Test
     public void getTest() {
-        new Post(CLOUD_PROVIDER_AWS, null, "Introduction to AWS services","", LocalDateTime.now(),true,"english").persist();
-        new Post(PROGRAMMING_JAVA, null, "Introduction to Java","", LocalDateTime.now(),true,"english").persist();
+        new Post(CLOUD_PROVIDER_AWS, null, "Introduction to AWS services","","", LocalDateTime.now(),true,"english").persist();
+        new Post(PROGRAMMING_JAVA, null, "Introduction to Java","","", LocalDateTime.now(),true,"english").persist();
         var menu = Menu.get();
         Assertions.assertEquals(2, menu.items().size());
         menu.items().get(ClOUD);

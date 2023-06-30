@@ -33,7 +33,7 @@ public class PostResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPost(@Valid CreatePostDTO createDTO) {
-        ObjectId id = service.createPost(new Post(createDTO.path, createDTO.coverImage, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language));
+        ObjectId id = service.createPost(new Post(createDTO.path, createDTO.coverImage, createDTO.title, createDTO.shortDescription, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language));
         return Response.created(
                         URI.create("/post/%s".formatted(id.toString())))
                 .build();
@@ -43,7 +43,7 @@ public class PostResource {
     @Path("{postId}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePost(String postId, @Valid CreatePostDTO createDTO) {
-        var postUpdate = new Post(createDTO.path, null, createDTO.title, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language);
+        var postUpdate = new Post(createDTO.path, null, createDTO.title, createDTO.shortDescription, createDTO.content, LocalDateTime.now(), createDTO.visible, createDTO.language);
         boolean isPostUpdated = service.updatePost(new ObjectId(postId), postUpdate);
         if (isPostUpdated) {
             return Response.ok().build();

@@ -23,10 +23,10 @@ public class PostResourceTest {
 
     @Test
     public void showPage() {
-        new Post(PATH, null, "who am I?", "I'm a software engineer. ", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
-        new Post(PATH, null, "Which skills I have?", "I program in java and angular.", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
-        new Post(PATH, null, "How many years of experience I have?", "More than 10 years. ", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
-        new Post(PATH, null, "What I like todo in my free time?", "Play COD (Call of Duty war-zone 2).", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
+        new Post(PATH, null, "who am I?","", "I'm a software engineer. ", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
+        new Post(PATH, null, "Which skills I have?","", "I program in java and angular.", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
+        new Post(PATH, null, "How many years of experience I have?","", "More than 10 years. ", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
+        new Post(PATH, null, "What I like todo in my free time?","", "Play COD (Call of Duty war-zone 2).", LocalDateTime.now(), Boolean.TRUE, LANGUAGE).persist();
 
 
         given()
@@ -52,7 +52,7 @@ public class PostResourceTest {
 
     @Test
     public void updatePost() {
-        var post = new Post("Donation", null, "Pay me a coffee!", "Thank you for help me drink some coffee!", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
+        var post = new Post("Donation", null, "Pay me a coffee!","", "Thank you for help me drink some coffee!", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
         post.persist();
 
         var jsonObject = "{\"path\" : \"%s\",\"title\" : \"%s\", \"content\" : \"%s\", \"language\" : \"%s\"}";
@@ -67,7 +67,7 @@ public class PostResourceTest {
 
     @Test
     public void getPost() {
-        var post = new Post("Java", null, "Hello world?", "Public static void main(String [] args){}", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
+        var post = new Post("Java", null,"Hello world?", "","Public static void main(String [] args){}", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
         post.persist();
 
         given()
@@ -82,7 +82,7 @@ public class PostResourceTest {
 
     @Test
     public void deletePost() {
-        var post = new Post("PHP", null, "Java is better than PHP!", "It's all I have to say :P", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
+        var post = new Post("PHP", null, "Java is better than PHP!", "", "It's all I have to say :P", LocalDateTime.now(), Boolean.TRUE, LANGUAGE);
         post.persist();
 
         given()
