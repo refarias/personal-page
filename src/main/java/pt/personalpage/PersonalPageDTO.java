@@ -1,10 +1,10 @@
 package pt.personalpage;
 
-import pt.personalpage.menu.Menu;
+import pt.personalpage.menu.MenuDTO;
 import pt.personalpage.post.Post;
 import pt.personalpage.profile.Profile;
 
 import java.util.List;
 
-public record PersonalPageDTO(Profile profile, Menu menu, List<Post> posts) {
+public record PersonalPageDTO(Profile profile, MenuDTO menu, List<Post> posts) {
 }

@@ -2,7 +2,9 @@ package pt.personalpage;
 
 import io.quarkus.cache.CacheResult;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import pt.personalpage.menu.ItemDTO;
 import pt.personalpage.menu.Menu;
+import pt.personalpage.menu.MenuDTO;
 import pt.personalpage.post.Post;
 import pt.personalpage.profile.Profile;
 
@@ -12,6 +14,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RequestScoped
 @Path("page")
@@ -22,10 +27,10 @@ public class PersonalPageResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @CacheResult(cacheName = "first-page")
-    public Response getFistPage(){
+    public Response getFistPage() {
         var profile = (Profile)Profile.findAll().firstResult();
         var menu = Menu.get();
         var posts = Post.showPage(0, numberOfPages);
-        return Response.ok(new PersonalPageDTO(profile, menu, posts)).build();
+        return Response.ok(new PersonalPageDTO(profile, new MenuDTO(menu), posts)).build();
     }
 }

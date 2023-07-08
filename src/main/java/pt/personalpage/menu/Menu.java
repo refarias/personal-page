@@ -1,6 +1,5 @@
 package pt.personalpage.menu;
 
-import io.quarkus.cache.CacheResult;
 import pt.personalpage.post.Post;
 
 import java.util.HashMap;
